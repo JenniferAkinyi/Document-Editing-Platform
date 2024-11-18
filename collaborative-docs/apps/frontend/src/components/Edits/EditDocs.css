@@ -1,0 +1,18 @@
+.edit-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.react-icon{
+    position: absolute;
+    left: 19rem;
+    cursor: pointer;
+}
+.quill-container{
+    margin-top: 60px;
+    width: 100%;
+}
+.ql-container.ql-snow{
+    border: none !important;
+    outline: none !important;
+}

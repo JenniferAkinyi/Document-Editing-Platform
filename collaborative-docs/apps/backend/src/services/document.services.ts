@@ -55,7 +55,7 @@ export async function fetchDocumentById(id: number){
     }
 }
 
-// update a specifuc detail in the document
+// update a specif1c detail in the document
 export async function updateDocument(title: string, content: string, ownerId: number, id: number){
     try {
         const document = await prisma.documents.update({
@@ -109,7 +109,7 @@ export async function createNewDocument(
     }
   } catch (error: any) {
     return{
-        code: 400,
+        code: 500,
         message: "Error posting document",
         details: error.toString()
     }

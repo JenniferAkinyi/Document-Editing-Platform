@@ -1,9 +1,5 @@
 import { Request, Response } from "express";
-import { fetchAllUsers } from '../services/user.services'
-import { createUser } from "../services/user.services";
-import { fetchUserById } from "../services/user.services";
-import { updatedUser } from "../services/user.services";
-import { deleteUser } from "../services/user.services";
+import { fetchAllUsers, createUser, fetchUserById, updatedUser, deleteUser } from '../services/user.services'
 
 export async function getAllUsers(req: Request, res: Response) {
   try {

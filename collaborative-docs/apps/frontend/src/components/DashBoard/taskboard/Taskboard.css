@@ -1,0 +1,28 @@
+.new-document{
+    background-color: #f1f3f4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.document-card{
+    width: 120px;
+    height: 120px;
+    background-color: white;
+    border: 1px solid #dadce0;
+    cursor: pointer;
+    margin-left: 6rem;
+}
+.document-card:hover{
+    border: 1px solid rgb(135, 135, 221);
+}
+.document-card img{
+    padding: 2.2rem;
+}
+.new-document p{
+    font-size: 1rem;
+    font-weight: 500;
+    color: #5f6368;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 6rem;
+}
