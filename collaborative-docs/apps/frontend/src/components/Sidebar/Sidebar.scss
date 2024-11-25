@@ -1,6 +1,6 @@
 .sidebar {
   position: fixed;
-  left: 0;
+  left: -300px;
   top: 0;
   width: 260px;
   height: 100%;
@@ -9,14 +9,13 @@
   box-shadow: rgba(100, 100, 111, 0.1) 0px 7px 29px 0px;
   display: flex;
   flex-direction: column;
-  z-index: 999;
+  z-index: 1000;
   transition: var(--default-transition);
   overflow-y: scroll;
-  // transform: translateX(-100%);
-
-  // &.open {
-  //   transform: translateX(0); // Show sidebar
-  // }
+  
+  &.sidebar-show {
+    left: 0; 
+  }
 
   &::-webkit-scrollbar {
     width: 6px;

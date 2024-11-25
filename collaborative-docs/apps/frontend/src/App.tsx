@@ -11,6 +11,8 @@ import { SidebarContext } from "./context/SidebarContext";
 import { Dashboard } from "./screens"
 import RegisterForm  from "./components/Authentication/RegisterForm";
 import Login from "./components/Authentication/Login";
+import Sidebar from "./components/Sidebar/Sidebar"
+// import EditDocs  from "./components/Edits/EditDocs";
 
 
 
@@ -45,9 +47,11 @@ function App() {
             <Route path='/' element={<Dashboard />} />
             <Route path='/register' element={<RegisterForm />} />
             <Route path='/login' element={<Login />} />
+            {/* <Route path='/document' element={<EditDocs />}/> */}
             
           </Route>
         </Routes>
+        <Sidebar></Sidebar>
 
         <button
           type="button"

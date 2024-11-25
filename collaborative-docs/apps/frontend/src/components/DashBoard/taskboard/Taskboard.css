@@ -1,28 +1,128 @@
-.new-document{
-    background-color: #f1f3f4;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
 }
-.document-card{
-    width: 120px;
-    height: 120px;
-    background-color: white;
-    border: 1px solid #dadce0;
-    cursor: pointer;
-    margin-left: 6rem;
+.new-document {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f1f3f4;
+  width: 100%;
+  max-width: 1300px;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  border-radius: 8px;
 }
-.document-card:hover{
-    border: 1px solid rgb(135, 135, 221);
+
+.document-card {
+  width: 120px;
+  height: 140px;
+  background-color: white;
+  border: 1px solid #dadce0;
+  cursor: pointer;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border 0.3s;
 }
-.document-card img{
-    padding: 2.2rem;
+
+.document-card:hover {
+  border: 1px solid rgb(135, 135, 221);
 }
-.new-document p{
-    font-size: 1rem;
-    font-weight: 500;
-    color: #5f6368;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    margin-left: 6rem;
+
+.document-card img {
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+}
+
+.new-document p {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #010102;
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+.documents {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  max-width: 1300px;
+  box-sizing: border-box;
+}
+.action-dropdown-btn {
+  color: var(--text-color-inverted);
+  position: relative;
+}
+
+.action-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 50%;
+  transform: translateX(80%);
+  height: auto;
+  min-width: 100px;
+  box-shadow: rgba(100, 100, 111, 0.1) 0px 1px 4px 0px;
+  background-color: var(--secondary-color);
+  padding: 6px 10px;
+  z-index: 1;
+  border-radius: 8px;
+  border: 1px solid var(--border-color-inverted);
+  text-align: left;
+}
+
+.dropdown-menu-item {
+  margin: 8px 0;
+}
+
+.dropdown-menu-link {
+  color: var(--text-color-inverted);
+  font-weight: 600;
+  transition: var(--default-transition);
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+@media (max-width: 768px) {
+  .new-document,
+  .documents {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .document-card {
+    width: 100px;
+    height: 100px;
+  }
+
+  .new-document p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .new-document,
+  .documents {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .document-card {
+    width: 80px;
+    height: 80px;
+  }
+
+  .new-document p {
+    font-size: 0.8rem;
+  }
 }

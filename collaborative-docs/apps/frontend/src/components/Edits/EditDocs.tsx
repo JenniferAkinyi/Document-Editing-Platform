@@ -5,38 +5,52 @@ import ReactQuill from 'react-quill';
 import EditorToolbar, { modules, formats } from './EditorToolbar'
 import 'react-quill/dist/quill.snow.css';
 
+interface Document {
+  id: number;
+  title: string;
+  content: string;
+  ownerId: number;
+  createdAt: string;
+  updatedAt: string;
+}
 
 interface EditDocsProps {
   handleEdit: () => void;
+  document: Document;
 }
 
-const EditDocs: React.FC<EditDocsProps> = ({ handleEdit }) => {
-    let quillRef = useRef<any>(null)
+const EditDocs: React.FC<EditDocsProps> = ({ handleEdit, document }) => {
+  const quillRef = useRef<any>(null);
 
-    useEffect(() => {
-        quillRef.current.focus()
-    }, [])
-
-    const [state, setState] = React.useState({value: ''})
-    const handleChange = (value: string) => {
-        setState({ value })
+  useEffect(() => {
+    if (quillRef.current) {
+      quillRef.current.focus();
     }
+  }, []);
 
-  return <div className="edit-container">
-    <GoArrowLeft  onClick={handleEdit} size={30} className="react-icon"/>
-    <div className="quill-container">
+  const [state, setState] = React.useState({ value: document.content });
+
+  const handleChange = (value: string) => {
+    setState({ value });
+  };
+
+  return (
+    <div className="edit-container">
+      <GoArrowLeft onClick={handleEdit} size={25} className="react-icon" />
+      <div className="quill-container">
         <EditorToolbar />
-        <ReactQuill 
-            theme="snow" 
-            value={state.value}   
-            onChange={handleChange}
-            placeholder="" 
-            ref={quillRef}
-            modules={modules}
-            formats={formats}
+        <ReactQuill
+          theme="snow"
+          value={state.value}
+          onChange={handleChange}
+          placeholder=""
+          ref={quillRef}
+          modules={modules}
+          formats={formats}
         />
+      </div>
     </div>
-  </div>;
+  );
 };
 
 export default EditDocs;

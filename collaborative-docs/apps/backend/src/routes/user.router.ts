@@ -1,16 +1,22 @@
 import { Router } from "express";
-import { getAllUsers } from "../controllers/userController";
-import { postUser } from "../controllers/userController";
-import { fetchById } from "../controllers/userController";
-import { updatedUserById } from "../controllers/userController";
-import { deleteUserById } from "../controllers/userController";
+import { 
+    getAllUsers,
+    postUser,
+    fetchById,
+    updatedUserById,
+    deleteUserById,
+    loginUser,
+   
+} from "../controllers/userController";
 import { asyncHandler } from "../utils/handler";
+import { authenticateTokenMiddleware } from "../middlewares/authToken.middlewares";
 
 const userRouter = Router();
 
+userRouter.post('/login', asyncHandler(loginUser));
 userRouter.get('/', asyncHandler(getAllUsers))
-userRouter.post('/', asyncHandler(postUser))
-userRouter.get('/:id', asyncHandler(fetchById))
+userRouter.post('/register', asyncHandler(postUser))
+userRouter.get('/:id',authenticateTokenMiddleware, asyncHandler(fetchById))
 userRouter.patch('/:id', asyncHandler(updatedUserById))
 userRouter.delete('/:id', asyncHandler(deleteUserById))
 

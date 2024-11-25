@@ -1,5 +1,6 @@
 .content-area-top {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
@@ -19,7 +20,6 @@
   .sidebar-open-btn {
     display: inline-flex;
     align-items: center;
-    display: none;
     margin-bottom: -1px;
     color: var(--text-color-inverted);
 
@@ -45,14 +45,8 @@
       color: var(--text-color-inverted);
     }
 
-    .profile-icon,
-    .profile-picture {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-    }
-
-    .profile-picture {
+    .profile-picture{
+      margin-right: 40px;
       object-fit: cover;
     }
   }

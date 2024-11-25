@@ -6,8 +6,6 @@ const Dashboard: React.FC = () => {
   return (
     <div className="content-area">
       <AreaTop />
-      {/* <AreaCards /> */}
-      {/* <AreaCharts /> */}
       <Taskboard />
     </div>
   );

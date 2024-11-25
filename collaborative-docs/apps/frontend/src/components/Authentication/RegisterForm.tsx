@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import animation from '../../assets/images/730_generated.jpg'
+import { register } from "../../Utils/api";
+import animation from "../../assets/images/730_generated.jpg";
 import "./RegisterForm.css";
 
 const RegisterForm: React.FC = () => {
@@ -38,13 +39,31 @@ const RegisterForm: React.FC = () => {
       return;
     }
 
-    // Simulate a successful registration
-    setTimeout(() => {
+    try {
+      const userData = {
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
+      };
+
+      const response = await register(userData);
+
+      if (response.status === 201) {
+        setSuccessMessage("User registered successfully!");
+        setFormData({ name: "", email: "", password: "", confirmPassword: "" });
+
+        setTimeout(() => {
+          navigate("/login");
+        }, 500);
+      } else {
+        throw new Error("Failed to register user");
+      }
+    } catch (err: any) {
+      setError(err.message || "An error occurred while registering the user.");
+    } finally {
       setLoading(false);
-      setSuccessMessage("Registration successful!");
-      navigate("/login");
-      }, 2000);
-    };
+    }
+  };
 
   return (
     <section>
@@ -55,7 +74,9 @@ const RegisterForm: React.FC = () => {
         <form onSubmit={handleSubmit}>
           <h2>Register a New User</h2>
           {error && <p className="error-message">{error}</p>}
-          {successMessage && <p className="success-message">{successMessage}</p>}
+          {successMessage && (
+            <p className="success-message">{successMessage}</p>
+          )}
 
           <div>
             <label>Name: </label>

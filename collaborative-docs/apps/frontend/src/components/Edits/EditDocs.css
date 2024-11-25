@@ -2,14 +2,15 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    padding: 0.5rem 3rem;
 }
 .react-icon{
     position: absolute;
-    left: 19rem;
+    left: 1rem;
     cursor: pointer;
 }
 .quill-container{
-    margin-top: 60px;
+    margin-top: 1px;
     width: 100%;
 }
 .ql-container.ql-snow{

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import animation from '../../assets/images/730_generated.jpg'
+import { login as apiLogin } from "../../Utils/api"; 
+import animation from '../../assets/images/730_generated.jpg';
 import "./Login.css";
 
 const Login: React.FC = () => {
@@ -21,16 +22,28 @@ const Login: React.FC = () => {
     setErrorMessage(null);
     
     try {
-        navigate("/"); 
-      } catch (error: any) {
-        setErrorMessage("Failed to log in. Please check your credentials.");
+      const userData = { email, password };
+      const response = await apiLogin(userData);
+      if (response.status === 200) {
+        const { token } = response.data;
+
+        localStorage.setItem("authToken", token); 
+
+        console.log("Login successful, navigating to home page...");
+        navigate("/");
+      } else {
+        setErrorMessage("Invalid email or password.");
       }
-    };
+    } catch (error: any) {
+      console.error("Login error:", error);
+      setErrorMessage("An error occurred. Please try again later.");
+    }
+  };
 
   return (
-    <section>
+    <section className="login-page">
       <div className="login-image">
-        <img src={ animation } alt="image" />
+        <img src={animation} alt="Login illustration" />
       </div>
       <div className="login-container">
         <form onSubmit={handleSubmit}>

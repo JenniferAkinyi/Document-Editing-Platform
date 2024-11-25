@@ -1,11 +1,11 @@
 section {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
   padding: 20px;
   background-color: #ffffff;
-  box-sizing: border-box;
+}
+.login-page{
+  flex-direction: row;
 }
 
 .login-image {
@@ -17,7 +17,7 @@ section {
 }
 
 .login-image img {
-  max-width: 100%;
+  max-width: 70%;
   height: auto;
   border-radius: 10px;
 }
