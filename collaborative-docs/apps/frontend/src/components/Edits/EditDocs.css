@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding: 0.5rem 3rem;
+    padding: 1rem 3rem;
 }
 .react-icon{
     position: absolute;
@@ -16,4 +16,15 @@
 .ql-container.ql-snow{
     border: none !important;
     outline: none !important;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    width: 8.5in;
+    min-height: 11in;
+    margin: 1.5rem;
+}
+.ql-toolbar.ql-snow{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border: none !important;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
